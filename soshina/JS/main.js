@@ -46,9 +46,9 @@ window.onload = function() {
         // document.getElementById("imgSample").style.backgroundImage = "url("+url+")";
 
         
-        var baaaaaaaka =document.createElement('img');
-        baaaaaaaka.src = url;
-        document.body.appendChild(baaaaaaaka);
+        var go =document.createElement('img');
+        go.src = url;
+        document.body.appendChild(go);
       }).catch(function(error) {
         // Handle any errors
         console.log(error);
