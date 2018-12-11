@@ -11,32 +11,44 @@
   };
   firebase.initializeApp(config);
 
-  var storageRef = firebase.storage().ref();
+//ストレージのルートのリファレンスを取得
+var storageRef = firebase.storage().ref();
 //ストレージのルートにあるsample.pngのリファレンスを取得    
-var imgSample = storageRef.child('animal_chara_computer_neko.png');
+var imgSample = storageRef.child('sample.png');
 
 window.onload = function() {
     //htmlロード完了したらストレージの画像を表示してみる
     imgSample.getDownloadURL().then(function(url){
       document.getElementById("imgSample").style.backgroundImage = "url("+url+")";
+
+
     }).catch(function(error) {
       // Handle any errors
       console.log(error);
+      console.log(url);
     });
   };
 
- //ストレージへアップロードする
- var btnUploadChange = function(ev){
+//   console.log(url);
+
+  var btnUploadChange = function(ev){
+      var zzz=ev.target.files[0].name;
+      console.log(zzz);
     //ストレージへアップロードするファイルのパスを生成する
-    var uploadRef = storageRef.child('upload.png');
-   const f = ev.target.files[0]; // 
+    var uploadRef = storageRef.child(zzz);
+    const f = ev.target.files[0];
     uploadRef.put(f).then(function(snapshot) {
       console.log('Uploaded a blob or file!');
  
       //アップロードしたファイルを表示してみる
       uploadRef.getDownloadURL().then(function(url){
         console.log("imgSample "+url);
-        document.getElementById("imgSample").style.backgroundImage = "url("+url+")";
+        // document.getElementById("imgSample").style.backgroundImage = "url("+url+")";
+
+        
+        var baaaaaaaka =document.createElement('img');
+        baaaaaaaka.src = url;
+        document.body.appendChild(baaaaaaaka);
       }).catch(function(error) {
         // Handle any errors
         console.log(error);
