@@ -1,11 +1,11 @@
-img{
+EMBED{
     
 /* display: flex; */
-flex-flow: row nowrap;
+flex-flow: row nowrap; 
 
 
 
-width: 200px;
+ width: 200px;
 
 
-};
+}; 
