@@ -33,7 +33,7 @@ var imgSample = storageRef.child('sample.png');
 window.onload = function() {
     //htmlロード完了したらストレージの画像を表示してみる
     imgSample.getDownloadURL().then(function(url){
-      document.getElementById("embed").style.backgroundImage = "url("+url+")";
+      document.getElementById("btnUpload").style.backgroundImage = "url("+url+")";
 
 
     }).catch(function(error) {
@@ -47,7 +47,19 @@ window.onload = function() {
 //アップロード処理
 
   
-//時刻データを取得して変数jikanに格納する
+
+var btnUploadChange = function(ev){
+ var zzz=ev.target.files[0].name;
+
+
+
+
+    
+    //ストレージへアップロードするファイルのパスを生成する
+
+
+
+    //時刻データを取得して変数jikanに格納する
 var jikan = new Date();
 
 //時・分・秒を取得する
@@ -64,10 +76,6 @@ console.log (jikan);
   console.log(rand);
 
 
-var btnUploadChange = function(ev){
- var zzz=ev.target.files[0].name;
-    
-    //ストレージへアップロードするファイルのパスを生成する
   var zzz =jikan + rand +zzz;
 
     console.log(zzz);
