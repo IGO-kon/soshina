@@ -11,6 +11,20 @@
   };
   firebase.initializeApp(config);
 
+  //View All fires when loaded
+
+
+  ref = firebase.storage().ref().child('img/sample.jpg');
+ref.getDownloadURL().then((url) => {
+  document.getElementById('image').src = url;
+});
+
+
+
+
+
+
+
 //ストレージのルートのリファレンスを取得
 var storageRef = firebase.storage().ref();
 //ストレージのルートにあるsample.pngのリファレンスを取得    
